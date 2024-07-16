@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../login/login.php');
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +7,13 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
     <?php
-
+    //Testando não existe usuário logado ///////
+        session_start();
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: ../login/login.php');
+            exit();
+        }
+    ////////////////////////////////////////////
         include("../controller/AlunoController.php"); 
         $res = AlunoController::listarAlunos();
         $qtd = $res->rowCount();
