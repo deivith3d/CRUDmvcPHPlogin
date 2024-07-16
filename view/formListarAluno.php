@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login/login.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +16,6 @@
 </head>
 <body>
     <?php
-
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: ../login/login.php');
-            exit();
-        }
 
         include("../controller/AlunoController.php"); 
         $res = AlunoController::listarAlunos();

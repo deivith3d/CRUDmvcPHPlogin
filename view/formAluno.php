@@ -8,12 +8,12 @@
 <body>
 
 <?php
-            echo "User found. ID: ".$_SESSION['user_id']."<br>";
-            echo "User name: ".$_SESSION['username']."<br>";
-    if (!isset($_SESSION['user_id'])) {
-       // header('Location: ../login/login.php');
-        exit();
-    }
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login/login.php');
+    exit();
+}
 
     $operacao = $_REQUEST["op"];
     if($operacao=="Alterar"){

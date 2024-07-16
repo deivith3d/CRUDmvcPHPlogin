@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (!isset($_SESSION['user_id'])) {
     header('Location: login/login.php');
     exit();
@@ -13,7 +15,7 @@ if (!isset($_SESSION['user_id'])) {
     <title>Document</title>
 </head>
 <body>
-    <button onclick="location.href ='../view/formAluno.php?op=Incluir'">Incluir</button>
-    <button onclick="location.href ='../view/formListarAluno.php?op=Listar'">Listar</button>
+    <button onclick="location.href ='view/formAluno.php?op=Incluir'">Incluir</button>
+    <button onclick="location.href ='view/formListarAluno.php?op=Listar'">Listar</button>
 </body>
 </html>
